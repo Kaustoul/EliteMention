@@ -54,7 +54,7 @@ public class EliteMention extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Bukkit.getPluginManager().registerEvents(new MyPluginListener(), this);
+        Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
         saveDefaultConfig();
         saveDefaultMessagesConfig();
         if (players != null) {
@@ -77,7 +77,7 @@ public class EliteMention extends JavaPlugin {
         log.info(String.format("[%s] Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
     }
 
-    public class MyPluginListener implements Listener {
+    public class ChatListener implements Listener {
         @EventHandler
         private void onPlayerChat(AsyncPlayerChatEvent event) {
             for (Player target : Bukkit.getServer().getOnlinePlayers()) {
