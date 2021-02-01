@@ -3,7 +3,6 @@ author: Rasdek11
 name: EliteMention
 version: 1.3
 api-version: 1.16
-description: Get
 
 commands:
   elitemention:
@@ -22,9 +21,9 @@ permissions:
     default: false
   elitemention.mute:
     default: true
+  elitemention.unmutable:
+    default: false
   elitemention.reload:
     default: false
   elitemention.cooldownbypass:
-    default: false
-  elitemention.toggleothers:
     default: false

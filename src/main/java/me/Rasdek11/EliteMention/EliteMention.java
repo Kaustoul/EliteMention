@@ -101,10 +101,10 @@ public class EliteMention extends JavaPlugin {
                         && event.getPlayer().hasPermission("elitemention.mentioncustomgroup")) {
                     for (Player target : Bukkit.getServer().getOnlinePlayers()) {
                         if (target.hasPermission("elitemention.customgroup." + group)){
-                            for (String name : getConfig().getStringList("customGroups.groups")) {
+                            /*for (String name : getConfig().getStringList("customGroups.groups")) {
                                 permissionInitiate("elitemention.customgroup." + name, "FALSE");
-                            }
-                        event.setMessage(mention(event.getPlayer(), target, event.getMessage(),
+                            }*/
+                            event.setMessage(mention(event.getPlayer(), target, event.getMessage(),
                                 getConfig().getString("customGroups.tag") + group));
                         }
                     }
@@ -161,12 +161,7 @@ public class EliteMention extends JavaPlugin {
                         sender.sendMessage(msg("noPermission"));
                     } else {
                         if (getConfig().getBoolean("toggle.enabled")) {
-                            UUID id;
-                            if (Bukkit.getServer().getOnlinePlayers().contains(args[1])
-                                    && sender.hasPermission("elitemention.toggleothers")){
-                                id = Bukkit.getServer().getPlayer(args[1]).getUniqueId();
-                            }
-                            else id = ((Player) sender).getPlayer().getUniqueId();
+                            UUID id = ((Player) sender).getUniqueId();
                             toggleSwitch(id);
                             if (toggle.contains(id)) {
                                 sender.sendMessage(msg("toggleOff"));
@@ -197,7 +192,6 @@ public class EliteMention extends JavaPlugin {
         }
         return false;
     }
-
     private String mention(Player player, Player target, String message, String string) {
         UUID targetID = target.getUniqueId();
         if(cooldowns.get(player.getUniqueId().toString()) == null)
@@ -206,7 +200,7 @@ public class EliteMention extends JavaPlugin {
                 || player.hasPermission("elitemention.cooldownbypass")){
             ArrayList list = new ArrayList();
             if (muted.get(targetID.toString()) == null)
-                list = muted.get(targetID.toString());
+                list = muted.put(targetID.toString(), list);
 
             list = muted.get(targetID.toString());
             if(!list.contains(player.getName())){
@@ -296,7 +290,11 @@ public class EliteMention extends JavaPlugin {
 
     private void playerMute(Player player, String target){
         ArrayList list = new ArrayList();
-        if(!Bukkit.getServer().getPlayer(target).hasPermission("elitemention.unmutable")){
+        if(Bukkit.getServer().getPlayer(target) != null &&
+                Bukkit.getServer().getPlayer(target).hasPermission("elitemention.unmutable")){
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                    String.format(msg("cantMute"), target)));
+        } else{
             if (muted.get(player.getUniqueId().toString()) == null) {
                 list.add(target);
                 muted.put(player.getUniqueId().toString(), list);
@@ -315,10 +313,10 @@ public class EliteMention extends JavaPlugin {
                     muted.replace(player.getUniqueId().toString(), list);
                 }
             }
-        } else
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                    String.format(msg("cantMute"), target)));
+        }
     }
+
+
 
     private String msg(String message){
         return ChatColor.translateAlternateColorCodes('&',
