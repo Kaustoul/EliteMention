@@ -1,0 +1,30 @@
+main: me.Rasdek11.EliteMention.EliteMention
+author: Rasdek11
+name: EliteMention
+version: 1.3
+api-version: 1.16
+description: Get
+
+commands:
+  elitemention:
+    aliases: [em]
+    #usage: "&cType /elitemention help for help"
+
+
+permissions:
+  elitemention.mention:
+    default: true
+  elitemention.mentioncustomgroup:
+    default: true
+  elitemention.toogle:
+    default: true
+  elitemention.everyone:
+    default: false
+  elitemention.mute:
+    default: true
+  elitemention.reload:
+    default: false
+  elitemention.cooldownbypass:
+    default: false
+  elitemention.toggleothers:
+    default: false

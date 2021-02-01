@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EliteMention:jar">
+    <output-path>$USER_HOME$/Desktop/test server/plugins</output-path>
+    <root id="archive" name="EliteMention.jar">
+      <element id="module-output" name="EliteMention" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../Spigot Dev Tools/1.16.5/Spigot/Spigot-API/target/spigot-api-1.16.5-R0.1-SNAPSHOT-shaded.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

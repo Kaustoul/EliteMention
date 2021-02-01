@@ -1,0 +1,23 @@
+#Welcome to the EliteMention messages file!
+#Here you can edit all the messages that the plugin sends to players
+#!!!ONLY EDIT TEXT BETWEEN THE " " QUOTATION MARKS!!!
+#!!!IF THERE IS A %s IN THE MESSAGE IT IS A PLACEHOLDER AND YOU HAVE TO KEEP IT IN!!!
+#=======================================================================
+
+prefix: "&b&l[&r&eElite&fMention&b&l]&r"
+
+reloadMessage: "&eReloaded all config files!"
+noPermission: "&cYou don't have permission to do that!"
+playerCmd: "&cThis command can be used only by a player!"
+toggleOff: "&eMentions turned &cOFF&e!"
+toggleOn: "&eMentions turned &aON&e!"
+notEnabled: "&cThis feature is not enabled on the server!"
+muteUsage: "&cUsage: /elitemention mute [Player] -> Disables mentions from Player!"
+onCooldown: "&cMention on cooldown! You can mention a player again in %s s!"
+muted: "&eMuted player&6 %s &efrom mentioning you!"
+unmuted: "&ePlayer&6 %s &ecan mention you again!"
+cantMute: "&cYou can't mute player&6 %s &cfrom mentioning you!"
+helpHelp: "&fShows the help menu."
+helpMute: "&fMutes/Unmutes [Player] from mentioning you."
+helpToggle: "&fToggles mentioning on/off for a player."
+helpReload: "&fReloads all config files."

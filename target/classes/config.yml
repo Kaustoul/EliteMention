@@ -1,0 +1,90 @@
+#Welcome to the EliteMention config file!
+#Sound effects: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+#Chat colors: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html
+#=================================================================================
+
+#These are the default values which will be used if groups are turned off
+tag: #Whether or not you want to use a tag before mentioning a player
+  enabled: false
+  tag: '@'
+
+sound: #Whether or not to play a sound effect on player mention
+  enabled: true
+  effect: ENTITY_EXPERIENCE_ORB_PICKUP
+  volume: '1'
+  pitch: '1'
+
+mentionColor: #Highlight the mention in chat with different formatting
+  enabled: true
+  mention: YELLOW         #Color of the mentioned player
+  after: WHITE            #Color of text after the mention (resets previous formatting)
+
+toggle: #players can toggle mentions with /elitemention toggle
+        #You should settup this before players will start using this as they could get stuck with one feature toggled off
+        #since you would turn off switching it on later.
+  enabled: true
+  sound: true             #enables toggling sound effect on mention
+  mentionColor: false     #enables toggling chat name highlighting on mention
+
+everyone:
+  enabled: true
+  tag: '@everyone'
+
+mute: true                #enables muting other players from mentioning you
+
+cooldown: '0'
+
+groupsEnabled: false
+groups:
+#To set a players group give him elitemention.group.<GroupName> permission
+  owner:
+    sound: #Whether or not to play a sound effect on player mention
+      enabled: true
+      effect: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: '1'
+      pitch: '1'
+
+    mentionColor: #Highlight the mention in chat with different formatting
+      enabled: true
+      mention: YELLOW
+      after: WHITE
+
+    cooldown: '0'
+
+  vip:
+    sound: #Whether or not to play a sound effect on player mention
+      enabled: true
+      effect: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: '1'
+      pitch: '1'
+
+    mentionColor: #Highlight the mention in chat with different formatting
+      enabled: true
+      mention: YELLOW
+      after: WHITE
+
+    cooldown: '2'
+
+  player:
+    sound: #Whether or not to play a sound effect on player mention
+      enabled: true
+      effect: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: '1'
+      pitch: '1'
+
+    mentionColor: #Highlight the mention in chat with different formatting
+      enabled: true
+      mention: YELLOW
+      after: WHITE
+
+    cooldown: '2'
+
+customGroups: #tag custoum group of players with @<CustomGroupName>.
+              #To put a player into a custom group give him the elitemention.customgroup.<CustomGroupName> permission
+              #Player has to have elitemention.mentioncustomgroup permission
+  enabled: true
+  tag: "@"
+  groups:
+    - 'staff'
+
+
